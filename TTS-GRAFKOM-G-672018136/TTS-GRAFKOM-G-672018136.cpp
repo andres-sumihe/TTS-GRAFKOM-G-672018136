@@ -37,7 +37,7 @@ void titikBanyak(double x, double y, float size) {
 	}
 }
 
-void elipse(string color, int x, int y, int model) {
+void elipse(string color, double x, double y, int model) {
 	int r = 59, g = 47, b = 49;
 	if (color == "cream") {
 		r = 141;
@@ -60,7 +60,7 @@ void elipse(string color, int x, int y, int model) {
 		glVertex2d(11.0 + x, 7.0 + y);
 
 		glEnd();
-		glColor3ub(105, 105, 105);
+		glColor3ub(230, 230, 230);
 		glLineWidth(4.0f);
 		glBegin(GL_LINE_LOOP);
 
@@ -86,7 +86,7 @@ void elipse(string color, int x, int y, int model) {
 
 		glEnd();
 
-		glColor3ub(105, 105, 105);
+		glColor3ub(230, 230, 230);
 		glLineWidth(4.0f);
 		glBegin(GL_LINE_LOOP);
 
@@ -113,22 +113,39 @@ void belahKetupat(int x, int y) {
 	glEnd();
 
 	glColor3ub(0, 0, 0);
-	glLineWidth(4.0f);
+	glLineWidth(2.0f);
 	glBegin(GL_LINE_STRIP);
-	glVertex2d(x -2, y + 3);
-	glVertex2d(x , y +2);
-	glVertex2d(x - 2, y +2);
-	glVertex2d(x , y +3);
+	glVertex2i(x , y - 6.25);
+	glVertex2i(x , y - 2);
+	glVertex2i(x - 2, y - 2);
+	glVertex2i(x - 2, y);
+	glVertex2i(x - 6.25, y);
+	glVertex2i(x - 2, y);
+	glVertex2i(x - 2, y + 2);
+	glVertex2i(x , y+2);
+	glVertex2i(x , y+6.25);
+	glVertex2i(x , y+2);
+	glVertex2i(x + 2 , y+2);
+	glVertex2i(x + 2 , y);
+	glVertex2i(x + 6.25 , y);
+	glVertex2i(x + 2 , y);
+	glVertex2i(x + 2 , y - 2);
+	glVertex2i(x , y - 2);
+	glEnd();
+
+	glPointSize(2.0f);
+	glBegin(GL_POINTS);
+	glVertex2i(x, y);
 	glEnd();
 }
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT);
-	glColor3ub(215,219,214);
+	glColor3ub(245,239,234);
 
 	for (int i = 0; i < 5; i++){
 		for (int j = 0; j < 5; j++) {
-			belahKetupat(0 + 25 * i, 12.5 + 25 * j);
-			belahKetupat(12.5 + 25 * i, 0 + 25 * j);
+			belahKetupat(0.0 + 25.0 * i, 12.5 + 25.0 * j);
+			belahKetupat(12.5 + 25.0 * i, 0 + 25.0 * j);
 		}
 	}
 
@@ -144,58 +161,58 @@ void display() {
 				color1 = "cream"; color2 = "cream";
 			}
 
-			elipse(color1, 25 * i, 25 * j, 1);
-			elipse(color1, 11 + 25 * i,11 + 25 * j, 1);
+			elipse(color1, 25.0 * i, 25.0 * j, 1);
+			elipse(color1, 11.0 + 25.0 * i,11.0 + 25.0 * j, 1);
 				   
-			elipse(color2, 25 * i - 11, 11 + 25 * j, 2);
-			elipse(color2, 25 * i, 25 * j, 2);
+			elipse(color2, 25.0 * i - 11.0, 11.0 + 25 * j, 2);
+			elipse(color2, 25.0 * i, 25.0 * j, 2);
 		}
 	}
-	kerangka();
 
+	//kerangka();
 	
 	glColor3f(1.0f, 1.0f, 1.0f);
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			titik(24 + (25 * i), 24 + (25 * j), 8.0f);
-			titik(24 + (25 * i), 26 + (25 * j), 8.0f);
-			titik(26 + (25 * i), 26 + (25 * j), 8.0f);
-			titik(26 + (25 * i), 24 + (25 * j), 8.0f);
+			titik(24.0 + (25.0 * i), 24.0 + (25.0 * j), 8.0f);
+			titik(24.0 + (25.0 * i), 26.0 + (25.0 * j), 8.0f);
+			titik(26.0 + (25.0 * i), 26.0 + (25.0 * j), 8.0f);
+			titik(26.0 + (25.0 * i), 24.0 + (25.0 * j), 8.0f);
 		}
 	}
 
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
-			titik(11 + (25 * i), 11 + (25 * j), 8.0f);
-			titik(11 + (25 * i), 13 + (25 * j), 8.0f);
-			titik(13 + (25 * i), 13 + (25 * j), 8.0f);
-			titik(13 + (25 * i), 11 + (25 * j), 8.0f);
+			titik(11.0 + (25.0 * i), 11.0 + (25.0 * j), 8.0f);
+			titik(11.0 + (25.0 * i), 13.0 + (25.0 * j), 8.0f);
+			titik(13.0 + (25.0 * i), 13.0 + (25.0 * j), 8.0f);
+			titik(13.0 + (25.0 * i), 11.0 + (25.0 * j), 8.0f);
 		}
 	}
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
-			titik(6 + (25 * i), 6 + (25 * j), 12.0f);
-			titik(19 + (25 * i), 6 + (25 * j), 12.0f);
+			titik(6.0 + (25.0 * i), 6.0 + (25.0 * j), 12.0f);
+			titik(19.0 + (25.0 * i), 6.0 + (25.0 * j), 12.0f);
 		}
 	}
 	
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
-			titik(8 + (25 * i), 8 + (25 * j), 12.0f);
-			titik(17 + (25 * i), 8 + (25 * j), 12.0f);
+			titik(8.0 + (25.0 * i), 8.0 + (25.0 * j), 12.0f);
+			titik(17.0 + (25.0 * i), 8.0 + (25.0 * j), 12.0f);
 		}
 	}
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
-			titik(8 + (25 * i), 17 + (25 * j), 12.0f);
-			titik(6 + (25 * i), 19 + (25 * j), 12.0f);
+			titik(8.0 + (25.0 * i), 17.0 + (25.0 * j), 12.0f);
+			titik(6.0 + (25.0 * i), 19.0 + (25.0 * j), 12.0f);
 		}
 	}
 
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
-			titik(17 + (25 * i), 17 + (25 * j), 12.0f);
-			titik(19 + (25 * i), 19 + (25 * j), 12.0f);
+			titik(17.0 + (25.0 * i), 17.0 + (25.0 * j), 12.0f);
+			titik(19.0 + (25.0 * i), 19.0 + (25.0 * j), 12.0f);
 		}
 	}
 	glFlush();
@@ -215,7 +232,7 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(0, 0);
-	glutCreateWindow("Points");
+	glutCreateWindow("Batik Kawung - 672018136");
 	glutDisplayFunc(display);
 	glEnable(GL_POINT_SMOOTH);
 	glEnable(GL_POLYGON_SMOOTH);
